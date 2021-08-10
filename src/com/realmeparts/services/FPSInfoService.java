@@ -96,7 +96,7 @@ public class FPSInfoService extends Service {
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
                         WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 PixelFormat.TRANSLUCENT);
-        params.gravity = Gravity.LEFT | Gravity.TOP;
+        params.gravity = Gravity.RIGHT | Gravity.TOP;
         params.setTitle("FPS Info");
 
         startThread();
@@ -226,7 +226,7 @@ public class FPSInfoService extends Service {
         }
 
         private String getFPSInfoString() {
-            return "Fps: "+mFps;
+            return "FPS: "+mFps;
         }
 
         @Override
@@ -237,11 +237,11 @@ public class FPSInfoService extends Service {
             }
 
             final int W = mNeededWidth;
-            final int LEFT = getWidth() - 1;
+            final int LEFT = getWidth() - 0;
 
             int x = LEFT - mPaddingLeft;
             int top = mPaddingTop + 2;
-            int bottom = mPaddingTop + mFH - 2;
+            int bottom = mPaddingTop + mFH + 2;
 
             int y = mPaddingTop - (int) mAscent;
 
@@ -257,7 +257,7 @@ public class FPSInfoService extends Service {
             }
 
             int neededWidth = mPaddingLeft + mPaddingRight + mMaxWidth;
-            int neededHeight = mPaddingTop + mPaddingBottom + 40;
+            int neededHeight = mPaddingTop + mPaddingBottom + 25;
             if (neededWidth != mNeededWidth || neededHeight != mNeededHeight) {
                 mNeededWidth = neededWidth;
                 mNeededHeight = neededHeight;
